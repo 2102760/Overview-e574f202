@@ -50,6 +50,7 @@
         <thead>
             <th>Titel</th>
             <th>Rating</th>
+            <th></th>
         </thead>
         <tbody>
             <?php
@@ -59,6 +60,7 @@
                         <tr>
                             <td>${row['title']}</td>
                             <td>${row['rating']}</td>
+                            <td><a href="serie.php?id=${row['id']}">Meer info</a></td>
                         </tr>
                     EOT;
                 }
@@ -71,21 +73,23 @@
 
     <table>
         <thead>
-        <th>Titel</th>
-        <th>Duur</th>
+            <th>Titel</th>
+            <th>Duur</th>
+            <th></th>
         </thead>
         <tbody>
-        <?php
-        $rows = select('SELECT * FROM films');
-        foreach ($rows as $row) {
-            echo <<<EOT
-                        <tr>
-                            <td>${row['title']}</td>
-                            <td>${row['duur']}</td>
-                        </tr>
-                    EOT;
-        }
-        ?>
+            <?php
+            $rows = select('SELECT * FROM films');
+            foreach ($rows as $row) {
+                echo <<<EOT
+                            <tr>
+                                <td>${row['title']}</td>
+                                <td>${row['duur']}</td>
+                                <td><a href="film.php?id=${row['id']}">Meer info</a></td>
+                            </tr>
+                        EOT;
+            }
+            ?>
         </tbody>
     </table>
 </body>
